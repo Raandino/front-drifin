@@ -1,12 +1,16 @@
 <template>
-    <Header />
-    <div class="pt-20">
-        <slot />
-    </div>
-    <Footer />
+   <Main>
+        <HeaderComponent />
+        <div class="pt-20">
+            <slot />
+        </div>
+        <FooterComponent />
+   </Main>
 </template>
 
 <script setup lang="ts">
+
+
 
 </script>
 

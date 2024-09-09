@@ -1,5 +1,5 @@
 <template>
-    <footer class="flex w-full bg-[#f7f6f6] items-center px-8 py-8">
+    <footer class="flex w-full bg-lightGray items-center px-8 py-8">
         <nav class="flex items-center justify-between w-full">
             <img
                 class="w-40 h-auto" 

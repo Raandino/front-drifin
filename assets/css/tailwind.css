@@ -12,13 +12,20 @@
 
 @layer components {
     .button{
-        @apply bg-black text-white uppercase px-6 py-4 active:scale-105 hover:bg-black/80 rounded-lg duration-300
+        @apply bg-black text-white px-6 py-4 active:scale-105 hover:bg-black/80 rounded-lg duration-300 uppercase text-sm flex justify-center
     }
     .button .router-link-active{
         @apply  text-white 
     }
+    .button.router-link-active{
+        @apply  text-white 
+    }
+}
+
+h2,p{
+    @apply  text-darkGray
 }
 
 .router-link-active{
-    @apply  text-[#0082f3]
+    @apply  text-primary
 }
