@@ -1,12 +1,12 @@
 <template>
-    <footer class="flex w-full bg-lightGray items-center px-8 py-8">
-        <nav class="flex items-center justify-between w-full">
+    <footer class="flex w-full bg-lightGray items-center px-8 py-8 justify-center">
+        <nav class="flex items-center justify-between max-w-7xl w-full flex-col gap-2 md:flex-row">
             <img
-                class="w-40 h-auto" 
+                class="w-28 md:w-40 h-auto" 
                 :src="logo" 
                 alt=""
             >
-            <p>© 2024 güil Mobility Ventures</p>
+            <p class=" text:base">© 2024 güil Mobility Ventures</p>
             <NuxtLink to="https://www.facebook.com/people/DriFin/61558801722947/">
                 <img :src="fb_logo" alt="Facebook logo">
             </NuxtLink>

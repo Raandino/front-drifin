@@ -8,11 +8,13 @@
                 :key="index"
             >
                 <NuxtLink 
-                    :to="`vehicles/${item.attributes.brand}-${item.attributes.model}`"
-                    class="underline" 
+                  :to="dynamicUrl(item)" 
+                  class="underline"
                 >
-                    {{ item.attributes.brand  }} {{ item.attributes.model }}
-                </NuxtLink>
+                  {{ item.attributes.brand }}
+                  {{ item.attributes.model }} 
+                  2024
+        </NuxtLink>
             </li>
         </ul>
 
@@ -23,6 +25,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useVehicleUrl } from '~/composables/useVehicleUrl'
 
 interface CarAttributes {
   brand: string;
@@ -31,6 +34,7 @@ interface CarAttributes {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  year: string; // Assuming year is a string in the API
 }
 
 interface CarData {
@@ -42,9 +46,15 @@ interface ApiResponse {
   data: CarData[];
 }
 
+// Use the composable
+const { generateVehicleUrl } = useVehicleUrl();
+
 // Create a ref to hold the fetched vehicles data
 const vehicles = ref<CarData[]>([]);
 
+const dynamicUrl = (item: CarData)=>{
+  return generateVehicleUrl(item.attributes.brand, item.attributes.model, '2024')
+}
 
 onMounted(async () => {
   try {
@@ -55,9 +65,6 @@ onMounted(async () => {
     console.error('Failed to fetch vehicles:', error);
   }
 });
-
-
-
 
 </script>
 

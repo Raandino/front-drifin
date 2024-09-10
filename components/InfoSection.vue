@@ -1,6 +1,6 @@
 <template>
     <section 
-        class="py-10 px-8 flex justify-center"
+        class="py-10 px-8 flex justify-center bg-white"
     >
        <main class="w-full max-w-7xl flex flex-col gap-5 justify-between lg:flex-row">
             <div class="flex flex-col justify-center">
@@ -17,7 +17,9 @@
                 <NuxtLink 
                     class="button mt-3"
                     to="/simula"
-                >{{ buttonText }}</NuxtLink>
+                >
+                    {{ buttonText }}
+                </NuxtLink>
             </div>
             <div class="lg:grid lg:grid-cols-2 lg:grid-rows-2 gap-3 flex flex-col  w-full items-center" >
                 <article 
@@ -48,6 +50,7 @@ type Card = {
 
 type Cards = Card[];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
   title: string;
   subtitle?: string;

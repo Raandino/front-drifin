@@ -1,11 +1,13 @@
 <template>
-    <header class="px-8 bg-white py-5 lg:py-0 lg:h-20 flex items-center fixed w-full shadow-lg justify-center flex-col">
+    <header class="px-8 bg-white py-5 lg:py-0 lg:h-20 flex items-center fixed w-full shadow-lg justify-center flex-col  z-50">
         <nav class="flex w-full justify-between items-center max-w-7xl">
-            <img 
-                :src="logo" 
-                alt=""
-                class=" w-28 h-fit"
-            >
+            <NuxtLink  to="/">
+                <img 
+                    :src="logo" 
+                    alt=""
+                    class=" w-28 h-auto"
+                >
+            </NuxtLink>
             <ul class="hidden lg:flex gap-4">
                 <li>
                     <NuxtLink  to="/">
@@ -39,6 +41,7 @@
         <ul 
             class="lg:hidden flex flex-col w-full gap-2 h-0  duration-300 overflow-hidden [&>*]:delay-75 [&>*]:opacity-0 [&>*]:duration-300"
             :class="{' !h-36 !py-5 overflow-visible [&>*]:opacity-100': navBarOpen }"
+            @click="handleClickOnMobileNavbar"
         >
                 <li>
                     <NuxtLink  to="/">
@@ -69,6 +72,9 @@ const navBarOpen = ref(false)
 
 const handleClick = ()=>{
     console.log(navBarOpen.value)
+    navBarOpen.value =  !navBarOpen.value
+}
+const handleClickOnMobileNavbar = ()=>{
     navBarOpen.value =  !navBarOpen.value
 }
 

@@ -9,6 +9,10 @@ module.exports = {
           lightGray: '#f7f6f6', 
 
         },
+        dropShadow: {
+          'cars': '1px 1px 30px rgba(0, 130, 243, 0.3)',
+          
+        }
       },
     },
     plugins: [],
