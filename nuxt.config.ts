@@ -4,6 +4,11 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss','@nuxt/eslint', '@nuxtjs/mdc'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxt/eslint',
+    '@nuxtjs/mdc',
+    '@nuxt/image',
+  ],
 
 })

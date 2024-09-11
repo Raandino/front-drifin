@@ -1,7 +1,8 @@
 <template>
     <header class="px-8 bg-white py-5 lg:py-0 lg:h-20 flex items-center fixed w-full shadow-lg justify-center flex-col  z-50">
         <nav class="flex w-full justify-between items-center max-w-7xl">
-            <NuxtLink  to="/">
+            <div class="flex items-center gap-12">
+                <NuxtLink  to="/">
                 <img 
                     :src="logo" 
                     alt=""
@@ -14,12 +15,13 @@
                         Inicio
                     </NuxtLink>
                 </li>
-                <li>
+                <!-- <li>
                     <NuxtLink to="/vehicles">
                         Catalogo
                     </NuxtLink>
-                </li>
+                </li> -->
             </ul>
+            </div>
             <button 
                 data-collapse-toggle="navbar-default" 
                 type="button" 
@@ -48,11 +50,11 @@
                         Inicio
                     </NuxtLink>
                 </li>
-                <li>
+                <!-- <li>
                     <NuxtLink to="/vehicles">
                         Catalogo
                     </NuxtLink>
-                </li>
+                </li> -->
                 <li>
 
                         <NuxtLink class="button lg:hidden w-full" to="/simula">
@@ -71,7 +73,6 @@ const logo = 'https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/6686e0
 const navBarOpen = ref(false)
 
 const handleClick = ()=>{
-    console.log(navBarOpen.value)
     navBarOpen.value =  !navBarOpen.value
 }
 const handleClickOnMobileNavbar = ()=>{
