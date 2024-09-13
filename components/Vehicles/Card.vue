@@ -1,11 +1,11 @@
 <template>
   <NuxtLink 
-    class="w-80 p-5 duration-300 vehicle-card rounded-lg"
-    :to="dynamicUrl(vehicle)"
+    class="w-80 p-5 duration-300 vehicle-card rounded-lg flex flex-col justify-between"
+    :to="`/vehicles/${vehicle.slug}`"
 
   >
       <img 
-        :src="vehicle['Image URL']"
+        :src="vehicle.image_url"
         alt=""
         class="mb-2 h-44"
         :class="{'animate-pulse bg-slate-300 rounded-sm': !dataIsValid}"
@@ -14,7 +14,7 @@
         class="font-bold text-xl  " 
         :class="{'animate-pulse bg-slate-300 rounded-sm h-7': !dataIsValid}"
       >
-        {{ dataIsValid ? vehicle.Marca + ' ' + vehicle.Modelo : '' }}
+        {{ dataIsValid ? vehicle.brand + ' ' + vehicle.model : '' }}
       </h3>
       <div 
         class="mt-5 flex gap-2 flex-col"
@@ -29,12 +29,12 @@
           class="font-bold text-2xl h-8"
           :class="{'animate-pulse bg-slate-300 rounded-sm': !dataIsValid}"
         >
-          {{ dataIsValid ? FORMATCURRENCY.format(vehicle.Price) : '' }}
+          {{ dataIsValid ? FORMATCURRENCY.format(vehicle.price) : '' }}
         </p>
       </div>
       <NuxtLink 
         class="button mt-4 h-[52px]"
-        :to="dynamicUrl(vehicle)"
+        :to="`/vehicles/${vehicle.slug}`"
         :class="{'animate-pulse bg-slate-300 rounded-sm hover:bg-slate-300': !dataIsValid}"
       >
         {{ dataIsValid ? 'Ver Mas' : '' }}
@@ -43,32 +43,26 @@
 </template>
 
 <script setup lang="ts">
-import type { Car } from '~/Types/VehiclesTypes';
-import { useVehicleUrl } from '~/composables/useVehicleUrl'
+import type { VehicleFields }  from '~/Types/VehiclesTypes';
 import { FORMATCURRENCY } from '~/composables/useCurrency';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
-  vehicle: Car;
+  vehicle: VehicleFields;
 }>();
+
+
+
 
 const dataIsValid = computed(() => {
   return (
-    !!props.vehicle.Marca &&
-    !!props.vehicle.Modelo &&
-    !!props.vehicle.Price &&
-    !!props.vehicle['Image URL']
+    !!props.vehicle.brand &&
+    !!props.vehicle.model &&
+    !!props.vehicle.price &&
+    !!props.vehicle.image_url
   );
 });
-const { generateVehicleUrl } = useVehicleUrl();
 
-const dynamicUrl = (item: Car)=>{
-  if(!dataIsValid.value){
-    return ''
-  }else{
-    return generateVehicleUrl(item.Marca, item.Modelo, '2024')
-  }
-}
 
 
 

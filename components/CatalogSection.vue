@@ -4,7 +4,8 @@
             <h2 class="text-xl md:text-2xl font-bold flex-1 flex items-center justify-start">
                 {{ title }}
             </h2>
-            <VehiclesContainer 
+            <VehiclesContainer
+                :fuel="fuel"
                 :vehicles="vehicles"
             />
         </main>
@@ -12,11 +13,12 @@
 </template>
 
 <script setup lang="ts">
-import type { Car } from '~/Types/VehiclesTypes';
+import type { ApiResponse }  from '~/Types/VehiclesTypes';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
   title: string;
-  vehicles: Car[];
+  fuel: string;
+  vehicles: ApiResponse;
 }>();
 </script>

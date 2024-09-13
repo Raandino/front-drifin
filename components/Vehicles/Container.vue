@@ -1,19 +1,25 @@
 <template>
   <div class="flex gap-5 flex-wrap justify-around">
     <VehiclesCard
-        v-for="(item,index) in vehicles" 
+        v-for="(item,index) in filteredVehicles" 
         :key="index" 
-        :vehicle="item"
+        :vehicle="item.fields"
       />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Car } from '~/Types/VehiclesTypes';
+import type { ApiResponse }  from '~/Types/VehiclesTypes';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
-  vehicles: Car[];
+  fuel:string,
+  vehicles: ApiResponse;
 }>();
+
+const filteredVehicles = computed(() => {
+  return ( props.vehicles.filter(vehicle=>vehicle.fields.fuel == props.fuel)
+  );
+});
+
 </script>
 

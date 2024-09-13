@@ -20,8 +20,9 @@
         />
 
         <CatalogSection 
+            fuel="gasoline"
             title="Gasolina"
-            :vehicles="VEHICLES"
+            :vehicles="vehicles"
         />
 
        <CTASection 
@@ -34,6 +35,7 @@
 </template>
 
 <script setup lang="ts">
+import type {ApiResponse}  from '~/Types/VehiclesTypes';
 const CARDS = [
     { 
         imgUrl: 'https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66304bfc580c07147cceda53_100-percent-p-500.png',
@@ -57,200 +59,15 @@ const CARDS = [
     }
 ]
 
-const VEHICLES = [
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "",
-        "Price": 0,
-        "Active": true,
-        "Modelo": "T2 ",
-        "Image URL": "",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-    },
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfb32b35bbb1a86fd4fe0_color%20gris%20(2)-p-2000.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-  },
-  {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfc903206180ed375e67e_KYX3%20NEGRO.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-    },
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfb32b35bbb1a86fd4fe0_color%20gris%20(2)-p-2000.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-  },
-  {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfc903206180ed375e67e_KYX3%20NEGRO.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-    },
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfb32b35bbb1a86fd4fe0_color%20gris%20(2)-p-2000.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-  },
-  {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfc903206180ed375e67e_KYX3%20NEGRO.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-    },
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfb32b35bbb1a86fd4fe0_color%20gris%20(2)-p-2000.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-  },
-  {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfc903206180ed375e67e_KYX3%20NEGRO.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-    },
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfb32b35bbb1a86fd4fe0_color%20gris%20(2)-p-2000.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-  },
-  {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfc903206180ed375e67e_KYX3%20NEGRO.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-    },
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfb32b35bbb1a86fd4fe0_color%20gris%20(2)-p-2000.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-  },
-  {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfc903206180ed375e67e_KYX3%20NEGRO.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-    },
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfb32b35bbb1a86fd4fe0_color%20gris%20(2)-p-2000.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-  },
-  {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfc903206180ed375e67e_KYX3%20NEGRO.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-    },
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfb32b35bbb1a86fd4fe0_color%20gris%20(2)-p-2000.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-  },
-  {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfc903206180ed375e67e_KYX3%20NEGRO.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-    },
-    {
-        "Fuel Type": "Gasolina",
-        "Marca": "Jetour",
-        "Price": 27990000,
-        "Active": true,
-        "Modelo": "T2 2.0T GDI AWD 7DCT LIMITED",
-        "Image URL": "https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfb32b35bbb1a86fd4fe0_color%20gris%20(2)-p-2000.webp",
-        "Slug": "JETOUR-T2-2.0T-GDI-AWD-7DCT-LIMITED"
-  },
-]
 
-
-
-interface CarAttributes {
-  brand: string;
-  model: string;
-  price: number;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  year: string; // Assuming year is a string in the API
-}
-
-interface CarData {
-  id: number;
-  attributes: CarAttributes;
-}
-
-interface ApiResponse {
-  data: CarData[];
-}
-
-
-const vehicles = ref<CarData[]>([]);
+const vehicles = ref<ApiResponse>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch('https://strapi-drifin-eh5tr.ondigitalocean.app/api/vehicles?populate=*');
+    const response = await fetch('https://backend-bff-drifin-a5dgg.ondigitalocean.app/vehicles/all');
     const result: ApiResponse = await response.json();
-    vehicles.value = result.data;
+    vehicles.value = result
+    console.log(result);
   } catch (error) {
     console.error('Failed to fetch vehicles:', error);
   }
