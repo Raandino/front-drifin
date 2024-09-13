@@ -2,7 +2,7 @@
     <div>
         <iframe 
 
-            src="https://drifin-dev.web.app/"
+            src="http://192.168.0.6:5173/"
             frameborder="0"
              width="100%" 
               ref="iframe"

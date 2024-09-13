@@ -75,7 +75,7 @@
 
     const vehicle = ref<Vehicle>()
     const imagesForSlider = ref<string[]>([])
-    const isDataLoaded = ref(false)
+    // const isDataLoaded = ref(false)
     
     onMounted(async() => {
         try {

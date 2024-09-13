@@ -15,6 +15,16 @@
                         Inicio
                     </NuxtLink>
                 </li>
+                <li>
+                    <NuxtLink  to="/gasoline">
+                        Gasolina
+                    </NuxtLink>
+                </li>
+                <li>
+                    <NuxtLink  to="/combustion">
+                        Combustion
+                    </NuxtLink>
+                </li>
                 <!-- <li>
                     <NuxtLink to="/vehicles">
                         Catalogo

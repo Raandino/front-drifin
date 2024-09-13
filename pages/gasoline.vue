@@ -1,10 +1,10 @@
 <template>
     <div class="">
         <HeroSection 
-            title="# Mejora tus ingresos con el **auto perfecto para ti**" 
+            title="# Vehiculos de Gasolina!" 
             subtitle="Tenemos precios y tasas diseñadas para maximizar tus ingresos"
             button-text="Simula tu Crédito"    
-            img-url="https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66cdfc903206180ed375e67e_KYX3%20NEGRO.webp"
+            img-url="https://strapi-docs.nyc3.digitaloceanspaces.com/T2_Diapo_6_1_b21bedf801.webp"
             partners-text="Pensado para conductores de:"
             :partners-imgs="[
                 'https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66304753db4a5cb9df08da6f_cabify-p-500.png',
@@ -12,25 +12,19 @@
                 'https://cdn.prod.website-files.com/66303de5f07ba23fd3946c07/66304753db4a5cb9df08daac_didi.png'
                 ]"
         />
-        <InfoSection 
-            title="La elección inteligente para conductores exigentes"
-            subtitle="Descubre por qué somos la mejor opción para conductores de apps y taxis."
-            button-text="Simula tu Crédito"
-            :cards="CARDS"
-        />
+        
+                <CatalogSection 
+                    fuel="gasoline"
+                    title="Gasolina"
+                    :vehicles="vehicles"
+                />
+                
 
         <CTASection 
             title="Ahorra en cada kilómetro. ¡Haz el cambio a un vehículo eléctrico!"
             subtitle="Deja atrás los altos costos de combustible"
             button-text="Simula tu Crédito"
        />
-
-        <CatalogSection 
-            fuel="gasoline"
-            title="Gasolina"
-            :vehicles="vehicles"
-        />
-        
 
        
     </div>

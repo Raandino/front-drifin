@@ -18,7 +18,7 @@ import type { ApiResponse }  from '~/Types/VehiclesTypes';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
   title: string;
-  fuel: string;
+  fuel: 'electric' | 'gasoline' | 'hybrid'| 'diesel';
   vehicles: ApiResponse;
 }>();
 </script>
